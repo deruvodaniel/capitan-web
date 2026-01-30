@@ -66,7 +66,7 @@ export function MusicSection() {
                 className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl mb-6"
               >
                 <img
-                  src="/images/album-tiempo.jpg"
+                  src="/images/2erdisco-tiempo.png"
                   alt="Album Cover - Tiempo"
                   className="w-full h-full object-cover"
                 />

@@ -57,7 +57,7 @@ export function AboutSection() {
             Quiénes Somos
           </h2>
           <p className="text-4xl md:text-6xl font-mono font-bold text-foreground leading-tight max-w-4xl mx-auto text-balance">
-            20 Años Rompiendo Todo
+            El origen de la banda que sacude Zona Sur
           </p>
         </motion.div>
 
