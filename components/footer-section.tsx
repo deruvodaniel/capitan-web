@@ -63,7 +63,7 @@ export function FooterSection() {
             viewport={{ once: true }}
             className="text-4xl md:text-6xl font-mono font-bold text-foreground mb-4"
           >
-            Seguinos en las Redes
+            Seguinos
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -72,7 +72,7 @@ export function FooterSection() {
             transition={{ delay: 0.1 }}
             className="text-muted-foreground font-sans text-lg max-w-xl mx-auto"
           >
-            Enterate de todos los shows, novedades y contenido exclusivo que subimos.
+            Enterate de todos los shows, novedades y contenido exclusivo.
           </motion.p>
         </div>
 
@@ -103,30 +103,6 @@ export function FooterSection() {
           ))}
         </motion.div>
 
-        {/* Newsletter / Contact */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="max-w-md mx-auto mb-16"
-        >
-          <div className="flex gap-2">
-            <input
-              type="email"
-              placeholder="Tu email para novedades..."
-              className="flex-1 bg-secondary border border-border rounded-full px-6 py-4 text-foreground placeholder:text-muted-foreground font-sans focus:outline-none focus:border-primary transition-colors"
-            />
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-mono font-semibold tracking-wider uppercase text-sm hover:bg-primary/90 transition-colors"
-            >
-              Suscribir
-            </motion.button>
-          </div>
-        </motion.div>
-
         {/* Bottom Info */}
         <div className="text-center border-t border-border pt-8">
           <motion.div
@@ -139,11 +115,9 @@ export function FooterSection() {
             <div className="flex items-center gap-3">
               <img src="/images/logos/Logo_Base_2025_Blanco_Celeste.png" alt="CAPITÁN" className="h-6 md:h-7 w-auto" />
               <span>•</span>
-              <span>20 Años</span>
-              <span>•</span>
-              <span>Hecho en Burzaco</span>
+              <span>20 Años</span>             
             </div>
-            <p>De las calles del sur a escenarios de toda Argentina</p>
+            <p>Made in Zona Sur</p>
           </motion.div>
         </div>
       </div>

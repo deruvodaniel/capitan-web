@@ -39,6 +39,20 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    const target = document.querySelector(href)
+    if (target) {
+      const offset = 80 // altura del navbar
+      const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      })
+    }
+    setIsMobileMenuOpen(false)
+  }
+
   return (
     <>
       <motion.nav
@@ -61,7 +75,8 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-sans text-muted-foreground hover:text-foreground transition-colors tracking-wide"
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-sm font-sans text-muted-foreground hover:text-foreground transition-colors tracking-wide cursor-pointer"
               >
                 {link.name}
               </a>
@@ -136,8 +151,8 @@ export function Navbar() {
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-4xl font-mono font-bold text-foreground hover:text-primary transition-colors"
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="text-4xl font-mono font-bold text-foreground hover:text-primary transition-colors cursor-pointer"
                   >
                     {link.name}
                   </motion.a>

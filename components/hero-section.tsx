@@ -193,10 +193,6 @@ export function HeroSection() {
           transition={{ delay: 1.5, duration: 0.8 }}
           className="mt-8 flex flex-col items-center gap-6"
         >
-          <p className="text-lg md:text-xl text-muted-foreground text-center max-w-md font-sans">
-            Rock • Cumbia • Ska directo desde Burzaco
-          </p>
-
           <div className="flex gap-4">
             <motion.button
               whileHover={{ scale: 1.05 }}

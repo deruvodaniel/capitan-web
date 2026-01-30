@@ -117,7 +117,34 @@ export function GallerySection() {
 
   return (
     <>
-      <section ref={containerRef} className="relative py-32 bg-secondary overflow-hidden">
+      <section ref={containerRef} className="relative py-32 bg-secondary/95 overflow-hidden">
+        {/* Animated background particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(15)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-primary/30 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -30, 0],
+                opacity: [0.3, 0.6, 0.3],
+                scale: [1, 1.5, 1],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
+        
+        {/* Fade gradient top */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent pointer-events-none z-10" />
+        
         <div className="max-w-7xl mx-auto px-6">
           {/* Section Header */}
           <motion.div
@@ -159,6 +186,9 @@ export function GallerySection() {
             ))}
           </div>
         </div>
+        
+        {/* Fade gradient bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none z-10" />
       </section>
 
       {/* Lightbox */}

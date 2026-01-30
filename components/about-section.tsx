@@ -2,25 +2,6 @@
 
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { Zap, Music, PartyPopper } from "lucide-react"
-
-const features = [
-  {
-    icon: Zap,
-    title: "Pura Potencia",
-    description: "Riffs pesados y energía que te vuela la cabeza—rock sin vueltas, directo y al hueso.",
-  },
-  {
-    icon: Music,
-    title: "Sabor Cumbia",
-    description: "Ritmos que te hacen mover sí o sí—cumbia mezclada con la intensidad del rock.",
-  },
-  {
-    icon: PartyPopper,
-    title: "Onda Ska",
-    description: "Vientos que levantan todo y un bajo que no para—puro festejo en cada tema.",
-  },
-]
 
 export function AboutSection() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -33,7 +14,7 @@ export function AboutSection() {
   const y2 = useTransform(scrollYProgress, [0, 1], [0, -200])
 
   return (
-    <section ref={containerRef} className="relative py-32 bg-background overflow-hidden">
+    <section ref={containerRef} className="relative py-20 bg-background overflow-hidden">
       {/* Parallax Background Elements */}
       <motion.div
         style={{ y: y1 }}
@@ -51,7 +32,7 @@ export function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
           <h2 className="text-sm tracking-[0.4em] text-primary uppercase mb-4 font-sans">
             Quiénes Somos
@@ -62,7 +43,7 @@ export function AboutSection() {
         </motion.div>
 
         {/* Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -108,27 +89,10 @@ export function AboutSection() {
             ))}
           </motion.div>
         </div>
-
-        {/* Features */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              whileHover={{ y: -5 }}
-              className="group relative bg-card border border-border p-8 rounded-lg overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <feature.icon className="w-12 h-12 text-primary mb-4" />
-              <h3 className="text-xl font-mono font-bold text-foreground mb-3">{feature.title}</h3>
-              <p className="text-muted-foreground font-sans">{feature.description}</p>
-            </motion.div>
-          ))}
-        </div>
       </div>
+      
+      {/* Fade gradient bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </section>
   )
 }
