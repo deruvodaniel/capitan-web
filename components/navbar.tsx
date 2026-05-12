@@ -19,10 +19,8 @@ const YouTubeIcon = ({ className }: { className?: string }) => (
 )
 
 const navLinks = [
-  { name: "Inicio", href: "#hero" },
+  { name: "Shows", href: "#shows", highlight: true },
   { name: "Nosotros", href: "#about" },
-  { name: "Videos", href: "#videos" },
-  { name: "Música", href: "#music" },
   { name: "Historia", href: "#timeline" },
   { name: "Galería", href: "#gallery" },
 ]
@@ -72,14 +70,25 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-sans text-muted-foreground hover:text-foreground transition-colors tracking-wide cursor-pointer"
-              >
-                {link.name}
-              </a>
+              link.highlight ? (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="text-sm font-mono font-bold text-primary hover:text-accent transition-colors tracking-widest uppercase cursor-pointer border-b border-primary/50 hover:border-accent/50 pb-0.5"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="text-sm font-sans text-muted-foreground hover:text-foreground transition-colors tracking-wide cursor-pointer"
+                >
+                  {link.name}
+                </a>
+              )
             ))}
           </div>
 
@@ -152,7 +161,11 @@ export function Navbar() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-4xl font-mono font-bold text-foreground hover:text-primary transition-colors cursor-pointer"
+                    className={`text-4xl font-mono font-bold transition-colors cursor-pointer ${
+                      link.highlight
+                        ? "text-primary hover:text-accent"
+                        : "text-foreground hover:text-primary"
+                    }`}
                   >
                     {link.name}
                   </motion.a>

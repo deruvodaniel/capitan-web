@@ -8,6 +8,7 @@ import { MusicSection } from "@/components/music-section"
 import { TimelineSection } from "@/components/timeline-section"
 import { GallerySection } from "@/components/gallery-section"
 import { FooterSection } from "@/components/footer-section"
+import { ShowsSection } from "@/components/shows-section"
 
 export default function HomePage() {
   return (
@@ -18,6 +19,10 @@ export default function HomePage() {
         <HeroSection />
       </section>
       
+      <section id="shows">
+        <ShowsSection />
+      </section>
+
       <section id="about">
         <AboutSection />
       </section>
