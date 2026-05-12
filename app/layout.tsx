@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { Montserrat, Inter } from 'next/font/google'
+import { MotionConfig } from 'framer-motion'
 import './globals.css'
 
 const montserrat = Montserrat({
@@ -49,7 +50,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       <body className="font-sans antialiased" suppressHydrationWarning>
-        {children}
+        <MotionConfig reducedMotion="user">
+          {children}
+        </MotionConfig>
         <Analytics />
       </body>
     </html>
