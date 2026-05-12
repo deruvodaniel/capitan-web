@@ -26,12 +26,12 @@ interface Show {
   tiers: ShowTier[]
 }
 
-function formatArs(amount: number) {
+function formatArs(centavos: number) {
   return new Intl.NumberFormat("es-AR", {
     style: "currency",
     currency: "ARS",
     maximumFractionDigits: 0,
-  }).format(amount)
+  }).format(centavos / 100)
 }
 
 function formatShowDate(iso: string) {
